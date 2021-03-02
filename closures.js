@@ -24,13 +24,13 @@ function outer() {
   
 // Code Here
 
-
+let inner = outer()
 
 //Once you do that, invoke inner.
 
 //Code Here
 
-
+inner()
 
 ////////// PROBLEM 2 //////////
 
@@ -53,6 +53,7 @@ function callFriend(name) {
 
 //Code Here
 
+let callJake = callFriend('Jake')
 
 
 ////////// PROBLEM 3 //////////
@@ -63,14 +64,21 @@ function callFriend(name) {
 
 //Code Here
 
+function makeCounter(){
+  let count = 0
 
+  function addOne(){
+    return ++count
+  }
+  return addOne
+}
 
 //Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+  var count = makeCounter();
+  count(); // 1
+  count(); // 2
+  count(); // 3
+  count(); // 4
 
 
 
@@ -85,9 +93,9 @@ function callFriend(name) {
   http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-example?answertab=votes#tab-top
 */
 
+// Code here.
 function counterFactory(value) {
-  // Code here.
-
+  
   return {
 
   };
@@ -114,8 +122,12 @@ function motivation( firstname, lastname ) {
 
   // code message function here.
 
+  function message(){
+    return `${welcomeText} ${firstname} ${lastname}.`
+  }
+
   //Uncommment this to return the value of your message function
-  //return message;
+  return message;
 }
 
 var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
@@ -144,6 +156,7 @@ var module = (function() {
   // outside our lexical scope
   return {
     // Code here.
+    
   };
 })();
 
@@ -163,6 +176,12 @@ function secretNumber() {
 
   return {
     // Code here
+    add: function(num) {
+      return result += num
+    },
+    subtract: function(num) {
+      return result -=num
+    }
   };
 }
 
@@ -194,3 +213,4 @@ function timeOutCounter() {
   }
 }
 timeOutCounter();
+
